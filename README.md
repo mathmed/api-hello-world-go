@@ -19,3 +19,4 @@ Simple API to get Pokemons information
 | :-------------------------- | :------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
 | `/pokemons/{pokedexNumber}` | Returns informations about the pokemon | GET    | { "status": { "message": "Pokemon not Found", "code": 400 } }                                                                      |
 | `/pokemons/{pokemonName}`   | Returns informations about the pokemon | GET    | { "status": { "message": "Ok", "code": 200 }, "data": { "id": 1, "name": "bulbasaur", "weight": 69 } } |
+
