@@ -9,13 +9,18 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type Data struct {
-	Message string `json:"message"`
+type ResponseWithData struct {
+	Status Status `json:"status"`
 	Data Pokemon `json:"data"`
 }
 
-type Message struct {
+type Response struct {
+	Status Status `json:"status"`
+}
+
+type Status struct {
 	Message string `json:"message"`
+	Code int `json:"code"`
 }
 
 type Pokemon struct {
@@ -38,7 +43,7 @@ func main() {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(Message{Message: "Use /pokemon/{name} or /pokemon/{pokedexNumber} to request pokemon data"})
+	json.NewEncoder(w).Encode(Response{Status{Code: 200, Message: "Use /pokemon/{name} or /pokemon/{pokedexNumber} to request pokemon data"}})
 }
 
 func getPokemon(w http.ResponseWriter, r *http.Request)  {
@@ -54,9 +59,9 @@ func getPokemon(w http.ResponseWriter, r *http.Request)  {
 	json.NewDecoder(response.Body).Decode(pokemon)
 	
 	if pokemon.Id == 0 {
-		json.NewEncoder(w).Encode(Message{Message: "Pokemon not Found"})
+		json.NewEncoder(w).Encode(Response{Status{Code: 400, Message: "Pokemon not Found"}})
 	} else {
-		json.NewEncoder(w).Encode(Data{Message: "Ok", Data: *pokemon})
+		json.NewEncoder(w).Encode(ResponseWithData{Status: Status{Message: "Ok", Code: 200}, Data: *pokemon})
 	}
 
 }
