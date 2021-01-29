@@ -2,5 +2,9 @@
 	"comment": "",
 	"ignore": "test",
 	"package": [],
-	"rootPath": "/api-hello-world-go"
+	"rootPath": "/api-hello-world-go",
+	"heroku": {
+		"goVersion": "go1.6",
+		"install" : ["github.com/gorilla/mux", "github.com/joho/godotenv"]
+	}
 }
