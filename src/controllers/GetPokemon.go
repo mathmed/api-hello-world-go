@@ -27,6 +27,7 @@ func GetPokemon(context *fiber.Ctx) error {
 
 	var pokemon models.Pokemon
 
+
 	err = json.NewDecoder(response.Body).Decode(&pokemon)
 
 	if err != nil {
@@ -40,9 +41,11 @@ func GetPokemon(context *fiber.Ctx) error {
 		"message": "Ok",
 		"code": 200,
 		"data": models.Pokemon{
-			Id:       pokemon.Id,
+			Id: pokemon.Id,
 			Weight: pokemon.Weight,
-			Name:    pokemon.Name,
+			Name: pokemon.Name,
+			Base_experience: pokemon.Base_experience,
+			Sprites: pokemon.Sprites,
 		},
 	})
 }
