@@ -3,6 +3,8 @@ services:
   app:
     ports:
       - ${PORT}:${PORT}
+    environment:
+      - GOROOT=/usr/local/go
     build: .
     volumes:
-      - .:/app
+      - .:/usr/local/go/src/api-hello-world-go

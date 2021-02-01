@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /app && /usr/local/go/bin/go get github.com/joho/godotenv && /usr/local/go/bin/go get -u github.com/gorilla/mux
-exec /usr/local/go/bin/go run /app/main.go
+cd /usr/local/go/src/api-hello-world-go && /usr/local/go/bin/go mod tidy
+exec /usr/local/go/bin/go run /usr/local/go/src/api-hello-world-go/main.go
