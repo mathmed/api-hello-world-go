@@ -1,6 +1,6 @@
 # Simple Pokemon API - Go
 
-Simple API to get Pokemons information
+Simple API to get Pokemons information.
 
 # Pre-requisites
 
